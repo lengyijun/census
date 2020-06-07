@@ -19,11 +19,15 @@
 //! assert_eq!(living_instances.len(), 2);
 //! ```
 
+#![no_std]
+use std::prelude::v1::*;
+extern crate sgx_tstd as std;
+
 use std::borrow::Borrow;
 use std::fmt;
 use std::ops::Deref;
 
-use std::sync::{Arc, Condvar, Mutex, MutexGuard, Weak};
+use std::sync::{Arc, SgxCondvar as Condvar,SgxMutex as Mutex,SgxMutexGuard as MutexGuard, Weak};
 
 use std::fmt::{Error, Formatter};
 
